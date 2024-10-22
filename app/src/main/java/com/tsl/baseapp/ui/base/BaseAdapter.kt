@@ -56,10 +56,10 @@ abstract class BaseAdapter<T>: RecyclerView.Adapter<BaseViewHolder<T>>() {
 
             if(exist == null){
                 addItem(item)
-                Log.e("Adapter_item","Nadded")
+                Log.e("Adapter_item","Added")
             }else{
                 updateItem(item)
-                Log.e("Adapter_item","updae")
+                Log.e("Adapter_item","updated")
             }
         }
     }
