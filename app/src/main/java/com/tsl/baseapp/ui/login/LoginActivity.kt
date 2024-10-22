@@ -13,30 +13,27 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
         ActivityLoginBinding.inflate(layoutInflater)
 
     override fun startView() {
-        setContentView(mViewBinding.root)
+
     }
 
     override fun stopView() {
-        TODO("Not yet implemented")
+
     }
 
     override fun setActionBarTitle(title: String?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun setActionBar() {
-        TODO("Not yet implemented")
+
     }
 
     override fun hideActionBar() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onBackPressListener() {
-        TODO("Not yet implemented")
+
     }
-
-
-
 
 }

@@ -33,6 +33,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewBinding = getViewBinding()
+        setContentView(mViewBinding.root)
         dialog = Dialog(this)
         setUpObservers()
         startView()
