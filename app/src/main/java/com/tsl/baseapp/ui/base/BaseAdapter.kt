@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.techfort.taakri.ui.base.ItemClickListener
 
 abstract class BaseAdapter<T>: RecyclerView.Adapter<BaseViewHolder<T>>() {
     private val mItemList: ArrayList<T> = arrayListOf()
