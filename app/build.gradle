@@ -18,11 +18,21 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures {
+        buildConfig = true
+    }
 
     buildTypes {
+        staging {
+            debuggable true
+            buildConfigField("String", "HOST_NAME", '"tom"')
+            buildConfigField("String", "BASE_URL", "\"ff/\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "HOST_NAME", '"tom"')
+            buildConfigField("String", "BASE_URL", "\"ff/\"")
         }
     }
     compileOptions {
@@ -39,23 +49,25 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation "com.google.android.material:material:$androidMaterialVersion"
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
     implementation libs.androidx.annotation
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation libs.androidx.constraintlayout
 
     //Architecture Component
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-    implementation "android.arch.lifecycle:extensions:$lifecycleExtentionVersion"
-    implementation "androidx.fragment:fragment-ktx:1.8.4"
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.lifecycle.extension
+    implementation libs.androidx.fragment.ktx
 
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+    //Retrofit
+    implementation libs.squireup.retrofit
+    implementation libs.squireup.retrofit.gson
+    implementation libs.squireup.logger
 
-    implementation 'androidx.preference:preference-ktx:1.2.1'
+    //Shared pref
+    implementation libs.androidx.preferance.ktx
 
     implementation("com.github.ihsanbal:LoggingInterceptor:$ihsanbalLoggingInterceptorVersion") {
         exclude group: 'org.json', module: 'json'
@@ -64,7 +76,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltAndroidXVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltAndroidXVersion"
 
-    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    //Design
+    implementation libs.dimen.sdp
 
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

@@ -11,6 +11,12 @@ annotation = "1.6.0"
 constraintlayout = "2.1.4"
 lifecycleLivedataKtx = "2.8.6"
 lifecycleViewmodelKtx = "2.8.6"
+lifecycleExtension = "1.1.1"
+fragmentKtx = "1.8.4"
+refrofit = "2.9.0"
+squireLogger = "4.10.0"
+preferanceKtx = "1.2.1"
+sdp = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,6 +29,13 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation", vers
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-extension = { group = "android.arch.lifecycle", name = "extensions", version.ref = "lifecycleExtension" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+squireup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "refrofit" }
+squireup-retrofit-gson= { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "refrofit" }
+squireup-logger= { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "squireLogger" }
+androidx-preferance-ktx= { group = "androidx.preference", name = "preference-ktx", version.ref = "preferanceKtx" }
+dimen-sdp= { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdp" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
