@@ -14,17 +14,28 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
     lateinit var dialog: Dialog
     private val logoutHandler = Handler(Looper.getMainLooper())
     abstract fun getViewBinding(): VB
-    abstract fun setLanguageTexts()
     abstract fun setActionBarTitle(title: String?)
     abstract fun setActionBar()
     abstract fun hideActionBar()
     abstract fun onBackPressListener()
+
+    /**
+     * UI initialization and observer setup required
+     */
+    abstract fun startView()
+
+    /**
+     * Will be called when onDestroy method called
+     */
+    abstract fun stopView()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewBinding = getViewBinding()
         dialog = Dialog(this)
         setUpObservers()
+        startView()
     }
 
     private fun setUpObservers() {
@@ -46,7 +57,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
 
         mViewModel.isLanguageUpdateNeeded.observe(this) { isUpdateNeeded ->
             if (isUpdateNeeded) {
-                setLanguageTexts()
+                //setLanguageTexts()
             }
         }
     }
@@ -54,6 +65,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
     override fun onDestroy() {
         super.onDestroy()
         if (dialog.isShowing) dialog.dismiss()
+        stopView()
     }
 
 }
