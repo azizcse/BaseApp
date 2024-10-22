@@ -54,6 +54,10 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
 
     implementation 'androidx.preference:preference-ktx:1.2.1'
+
+    implementation("com.github.ihsanbal:LoggingInterceptor:$ihsanbalLoggingInterceptorVersion") {
+        exclude group: 'org.json', module: 'json'
+    }
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
