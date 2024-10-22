@@ -8,10 +8,11 @@ import com.tsl.baseapp.data.LoginRepository
 import com.tsl.baseapp.data.Result
 
 import com.tsl.baseapp.R
+import com.tsl.baseapp.ui.base.BaseViewModel
 
-class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+class LoginViewModel : BaseViewModel() {
 
-    private val _loginForm = MutableLiveData<LoginFormState>()
+    /*private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
 
     private val _loginResult = MutableLiveData<LoginResult>()
@@ -51,5 +52,5 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
-    }
+    }*/
 }
