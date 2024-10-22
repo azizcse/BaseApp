@@ -14,7 +14,7 @@ abstract class BaseViewHolder<T>constructor(private val viewDataBinding: ViewDat
     abstract fun bind(item: T)
 
 
-    fun setOnclick(vararg views: View) {
+    fun setOnClick(vararg views: View) {
         for (view: View in views) {
             view.setOnClickListener(this)
         }

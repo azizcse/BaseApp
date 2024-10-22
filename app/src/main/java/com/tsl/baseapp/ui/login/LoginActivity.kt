@@ -1,21 +1,29 @@
 package com.tsl.baseapp.ui.login
 
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
+import com.tsl.baseapp.data.model.response.UserResponseItem
 import com.tsl.baseapp.databinding.ActivityLoginBinding
 
 import com.tsl.baseapp.ui.base.BaseActivity
+import com.tsl.baseapp.ui.base.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
+class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), ItemClickListener<UserResponseItem> {
+
+    private lateinit var loginAdapter: LoginAdapter
 
     override val mViewModel: LoginViewModel by viewModels()
 
-    override fun getViewBinding(): ActivityLoginBinding =
-        ActivityLoginBinding.inflate(layoutInflater)
+    override fun getViewBinding(): ActivityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
 
     override fun startView() {
-
+        loginAdapter = LoginAdapter(this)
+        mViewBinding.rvUserList?.adapter = loginAdapter
+        loginAdapter.addItems(mViewModel.getUserList())
+        loginAdapter.setClickLisener(this)
     }
 
     override fun stopView() {
@@ -36,6 +44,10 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override fun onBackPressListener() {
 
+    }
+
+    override fun onItemClick(view: View, item: UserResponseItem) {
+        Toast.makeText(this, item.name, Toast.LENGTH_LONG).show()
     }
 
 }

@@ -27,6 +27,7 @@ object ApiFactory {
     private lateinit var okHttpClient: OkHttpClient
     private val gson by lazy { GsonBuilder().create() }
     const val TIME_OUT = 30L
+    private val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 
     fun <Service> createService(
@@ -53,13 +54,14 @@ object ApiFactory {
     ): Retrofit {
 
         retrofit = Retrofit.Builder()
-            .baseUrl("Base-url")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(getUnsafeClient(context, timeOut, enableTokenInterceptor))
             .build()
 
         return retrofit
     }
+
     fun getUnsafeClient(
         context: Context,
         timeOut: Long = TIME_OUT,
@@ -111,7 +113,7 @@ object ApiFactory {
 
     private fun getToken(context: Context): String {
         return runBlocking {
-            PrefUtil.get(PrefKey.KEY_JWT_TOKEN,"").toString()
+            PrefUtil.get(PrefKey.KEY_JWT_TOKEN, "").toString()
         }
     }
 }
