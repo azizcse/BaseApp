@@ -33,7 +33,7 @@ abstract class BaseViewModel: ViewModel() {
                         skipHideLoading: Boolean = false,
                         isShowGlobalErrorMessage: Boolean = true,
                         api: suspend () -> Response<BaseResponse<T>>
-    ){
+    ):BaseResponse<T>?{
         if (isShowLoader)
             showLoader()
 
@@ -43,6 +43,7 @@ abstract class BaseViewModel: ViewModel() {
         if (isShowLoader && !skipHideLoading) {
             hideLoader()
         }
+        return response.body() as BaseResponse<T>
     }
 
 }
