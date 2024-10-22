@@ -4,6 +4,11 @@ import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.tsl.baseapp.App
 
+/**
+ * @author md-azizul-islam
+ * Created 10/22/24 at 3:30 PM
+ */
+
 object PrefUtil {
     val preferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.getContext())
 
