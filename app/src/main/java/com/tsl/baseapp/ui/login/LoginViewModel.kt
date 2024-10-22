@@ -8,9 +8,13 @@ import com.tsl.baseapp.data.LoginRepository
 import com.tsl.baseapp.data.Result
 
 import com.tsl.baseapp.R
+import com.tsl.baseapp.newwork.repository.UserRepository
 import com.tsl.baseapp.ui.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LoginViewModel : BaseViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(private val userRepository: UserRepository): BaseViewModel() {
 
     /*private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm

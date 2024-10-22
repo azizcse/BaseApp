@@ -4,7 +4,9 @@ import androidx.activity.viewModels
 import com.tsl.baseapp.databinding.ActivityLoginBinding
 
 import com.tsl.baseapp.ui.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
     override val mViewModel: LoginViewModel by viewModels()
