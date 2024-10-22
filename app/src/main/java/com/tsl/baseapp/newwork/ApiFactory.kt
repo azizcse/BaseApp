@@ -18,6 +18,10 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
+/**
+ * @author md-azizul-islam
+ * Created 10/22/24 at 12:38 PM
+ */
 object ApiFactory {
     private lateinit var retrofit: Retrofit
     private lateinit var okHttpClient: OkHttpClient
