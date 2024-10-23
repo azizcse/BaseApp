@@ -1,4 +1,4 @@
-package com.tsl.baseapp.network.di
+package com.tsl.baseapp.di
 
 import com.tsl.baseapp.network.repository.UserRepository
 import com.tsl.baseapp.network.repository.UserRepositoryImpl

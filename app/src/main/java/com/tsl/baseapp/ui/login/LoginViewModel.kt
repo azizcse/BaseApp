@@ -13,7 +13,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(private val userRepository: UserRepository) :
     BaseViewModel() {
     fun getUserList(): List<UserItem> {
-        var userList = ArrayList<UserItem>()
+        val userList = ArrayList<UserItem>()
         userList.add(
             UserItem(
                 name = "TechnoNext ${System.currentTimeMillis()}",

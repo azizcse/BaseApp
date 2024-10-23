@@ -1,4 +1,4 @@
-package com.tsl.baseapp.network.di
+package com.tsl.baseapp.di
 
 import android.content.Context
 import com.tsl.baseapp.network.ApiFactory
