@@ -11,13 +11,15 @@ import com.tsl.baseapp.ui.base.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), ItemClickListener<UserItem> {
+class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(),
+    ItemClickListener<UserItem> {
 
     private lateinit var loginAdapter: LoginAdapter
 
     override val mViewModel: LoginViewModel by viewModels()
 
-    override fun getViewBinding(): ActivityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
+    override fun getViewBinding(): ActivityLoginBinding =
+        ActivityLoginBinding.inflate(layoutInflater)
 
     override fun startView() {
         loginAdapter = LoginAdapter(this)
