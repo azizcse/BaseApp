@@ -7,8 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tsl.baseapp.data.base.BaseResponse
 import com.tsl.baseapp.utils.SingleLiveEvent
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.delay
 import retrofit2.Response
+import kotlin.coroutines.cancellation.CancellationException
 
 abstract class BaseViewModel : ViewModel() {
     private val _showLoader = MutableLiveData<SingleLiveEvent<Boolean>>()
@@ -36,24 +38,41 @@ abstract class BaseViewModel : ViewModel() {
         isShowGlobalErrorMessage: Boolean = true,
         api: suspend () -> Response<BaseResponse<T>>
     ): BaseResponse<T>? {
-        if (isShowLoader)
-            showLoader()
+        try {
+            if (isShowLoader)
+                showLoader()
 
-        delay(500)
+            delay(500)
 
-        val response = api.invoke()
+            val response = api.invoke()
 
-        if (isShowLoader && !skipHideLoading) {
+            if (isShowLoader && !skipHideLoading) {
+                hideLoader()
+            }
+            var baseResponse = response.body();
+
+            //Check Api response code here
+            if (baseResponse?.responseCode == "ERROR") {
+                // SHOW generic error alert
+                Log.e("", "")
+            }
+            return baseResponse
+        }catch (e: TimeoutCancellationException) {
             hideLoader()
+            //hideGifLoader()
+            //showMessage(timeOutErrorMessage)
+            e.printStackTrace()
+        } catch (e: CancellationException) {
+            hideLoader()
+            //hideGifLoader()
+            e.printStackTrace()
+        } catch (e: Exception) {
+            hideLoader()
+            //hideGifLoader()
+            //showMessage(defaultErrorMessage)
+            e.printStackTrace()
         }
-        var baseResponse = response.body();
-
-        //Check Api response code here
-        if (baseResponse?.responseCode == "ERROR") {
-            // SHOW generic error alert
-            Log.e("", "")
-        }
-        return baseResponse
+        return null
     }
 
 }

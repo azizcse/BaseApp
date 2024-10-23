@@ -4,9 +4,9 @@ package com.tsl.baseapp.data.model.response
  * @author md-azizul-islam
  * Created 10/22/24 at 3:01 PM
  */
-class UserResponse : ArrayList<UserResponseItem>()
+class UserResponse : ArrayList<UserItem>()
 
-data class UserResponseItem(
+data class UserItem(
     val address: Address? = null,
     val company: Company? = null,
     val email: String = "",

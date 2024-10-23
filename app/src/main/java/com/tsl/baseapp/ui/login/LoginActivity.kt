@@ -3,7 +3,7 @@ package com.tsl.baseapp.ui.login
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.tsl.baseapp.data.model.response.UserResponseItem
+import com.tsl.baseapp.data.model.response.UserItem
 import com.tsl.baseapp.databinding.ActivityLoginBinding
 
 import com.tsl.baseapp.ui.base.BaseActivity
@@ -11,7 +11,7 @@ import com.tsl.baseapp.ui.base.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), ItemClickListener<UserResponseItem> {
+class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), ItemClickListener<UserItem> {
 
     private lateinit var loginAdapter: LoginAdapter
 
@@ -46,7 +46,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), Item
 
     }
 
-    override fun onItemClick(view: View, item: UserResponseItem) {
+    override fun onItemClick(view: View, item: UserItem) {
         Toast.makeText(this, item.name, Toast.LENGTH_LONG).show()
     }
 

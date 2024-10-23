@@ -5,6 +5,19 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withInputStream { stream ->
+        localProperties.load(stream)
+    }
+}
+
+
+def stagingBaseUrl = localProperties.getProperty("staging_url")
+def releaseBaseUrl = localProperties.getProperty("release_url")
+
 android {
     namespace 'com.tsl.baseapp'
     compileSdk 34
@@ -25,14 +38,14 @@ android {
     buildTypes {
         staging {
             debuggable true
-            buildConfigField("String", "HOST_NAME", '"tom"')
-            buildConfigField("String", "BASE_URL", "\"ff/\"")
+            buildConfigField("String", "HOST_NAME", '"host.com"')
+            buildConfigField("String", "BASE_URL", "\"${stagingBaseUrl}\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "HOST_NAME", '"tom"')
-            buildConfigField("String", "BASE_URL", "\"ff/\"")
+            buildConfigField("String", "HOST_NAME", '"host.com"')
+            buildConfigField("String", "BASE_URL", "\"${releaseBaseUrl}\"")
         }
     }
     compileOptions {
