@@ -1,7 +1,7 @@
-package com.tsl.baseapp.newwork.repository
+package com.tsl.baseapp.network.repository
 
 import com.tsl.baseapp.data.base.BaseResponse
-import com.tsl.baseapp.newwork.service.UserService
+import com.tsl.baseapp.network.service.UserService
 import retrofit2.Response
 import javax.inject.Inject
 

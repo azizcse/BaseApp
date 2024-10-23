@@ -69,12 +69,9 @@ dependencies {
     //Shared pref
     implementation libs.androidx.preferance.ktx
 
-    implementation("com.github.ihsanbal:LoggingInterceptor:$ihsanbalLoggingInterceptorVersion") {
-        exclude group: 'org.json', module: 'json'
-    }
     //Hilt
-    implementation "com.google.dagger:hilt-android:$hiltAndroidXVersion"
-    kapt "com.google.dagger:hilt-compiler:$hiltAndroidXVersion"
+    implementation libs.google.dagger.hilt
+    kapt libs.google.dagger.hilt.compiler
 
     //Design
     implementation libs.dimen.sdp
@@ -82,4 +79,8 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+
+    implementation("com.github.ihsanbal:LoggingInterceptor:$ihsanbalLoggingInterceptorVersion") {
+        exclude group: 'org.json', module: 'json'
+    }
 }

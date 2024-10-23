@@ -1,15 +1,7 @@
 package com.tsl.baseapp.ui.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import android.util.Patterns
-import com.tsl.baseapp.data.LoginRepository
-import com.tsl.baseapp.data.Result
-
-import com.tsl.baseapp.R
 import com.tsl.baseapp.data.model.response.UserResponseItem
-import com.tsl.baseapp.newwork.repository.UserRepository
+import com.tsl.baseapp.network.repository.UserRepository
 import com.tsl.baseapp.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

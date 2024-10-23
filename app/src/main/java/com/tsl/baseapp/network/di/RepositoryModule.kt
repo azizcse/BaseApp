@@ -1,7 +1,7 @@
-package com.tsl.baseapp.newwork.di
+package com.tsl.baseapp.network.di
 
-import com.tsl.baseapp.newwork.repository.UserRepository
-import com.tsl.baseapp.newwork.repository.UserRepositoryImpl
+import com.tsl.baseapp.network.repository.UserRepository
+import com.tsl.baseapp.network.repository.UserRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

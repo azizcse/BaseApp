@@ -17,6 +17,7 @@ refrofit = "2.9.0"
 squireLogger = "4.10.0"
 preferanceKtx = "1.2.1"
 sdp = "1.1.0"
+hilt = "2.44"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,8 @@ squireup-retrofit-gson= { group = "com.squareup.retrofit2", name = "converter-gs
 squireup-logger= { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "squireLogger" }
 androidx-preferance-ktx= { group = "androidx.preference", name = "preference-ktx", version.ref = "preferanceKtx" }
 dimen-sdp= { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdp" }
+google-dagger-hilt= { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+google-dagger-hilt-compiler= { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

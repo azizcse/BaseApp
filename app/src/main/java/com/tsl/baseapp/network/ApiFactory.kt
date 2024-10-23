@@ -1,4 +1,4 @@
-package com.tsl.baseapp.newwork
+package com.tsl.baseapp.network
 
 import android.content.Context
 import com.google.gson.GsonBuilder

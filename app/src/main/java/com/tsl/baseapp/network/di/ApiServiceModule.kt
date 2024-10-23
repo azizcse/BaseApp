@@ -1,8 +1,8 @@
-package com.tsl.baseapp.newwork.di
+package com.tsl.baseapp.network.di
 
 import android.content.Context
-import com.tsl.baseapp.newwork.ApiFactory
-import com.tsl.baseapp.newwork.service.UserService
+import com.tsl.baseapp.network.ApiFactory
+import com.tsl.baseapp.network.service.UserService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
