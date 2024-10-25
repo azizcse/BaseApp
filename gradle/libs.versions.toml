@@ -18,6 +18,8 @@ squireLogger = "4.10.0"
 preferanceKtx = "1.2.1"
 sdp = "1.1.0"
 hilt = "2.44"
+navigationFragment = "2.8.3"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +41,8 @@ androidx-preferance-ktx= { group = "androidx.preference", name = "preference-ktx
 dimen-sdp= { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdp" }
 google-dagger-hilt= { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 google-dagger-hilt-compiler= { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

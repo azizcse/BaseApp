@@ -84,6 +84,8 @@ dependencies {
 
     //Hilt
     implementation libs.google.dagger.hilt
+    implementation libs.androidx.navigation.fragment
+    implementation libs.androidx.swiperefreshlayout
     kapt libs.google.dagger.hilt.compiler
 
     //Design
@@ -96,4 +98,5 @@ dependencies {
     implementation("com.github.ihsanbal:LoggingInterceptor:$ihsanbalLoggingInterceptorVersion") {
         exclude group: 'org.json', module: 'json'
     }
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

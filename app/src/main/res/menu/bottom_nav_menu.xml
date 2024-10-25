@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navHome"
+        android:icon="@drawable/home_icon_selector"
+        android:title="" />
+
+
+    <item
+        android:id="@+id/navStat"
+        android:icon="@drawable/menu_pocket_selector"
+        android:title="" />
+    <item
+        android:id="@+id/placeHolder"
+        android:title=""
+        />
+    <item
+        android:id="@+id/navChat"
+        android:icon="@drawable/ic_chat_unselected_read"
+        android:title=""
+        />
+    <item
+        android:id="@+id/navMenu"
+        android:icon="@drawable/menu_selector"
+        android:title="" />
+
+</menu>

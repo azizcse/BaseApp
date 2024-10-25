@@ -2,7 +2,9 @@ package com.tsl.baseapp.ui.base
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
@@ -14,7 +16,6 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     private lateinit var dialog: Dialog
 
     abstract fun getViewBinding(): VB
-    abstract fun setLanguageTexts()
     private lateinit var fm: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,15 +24,20 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
         fm = requireActivity().supportFragmentManager
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setUpObservers()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        mViewBinding = getViewBinding()
+        return mViewBinding.root
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpObservers()
+    }
     private fun setUpObservers() {
-
         mViewModel.showLoader.observe(viewLifecycleOwner) { it ->
             it.getContentIfNotHandled()?.let { isShow ->
                 val activity = requireActivity()
@@ -67,8 +73,6 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
         if (activity is BaseActivity<*, *>) {
             //activity.addMoneyBottomSheetDialog?.dismiss()
         }
-        //  hideKeyboard(requireContext(), requireView())
-        setLanguageTexts()
     }
 
 
