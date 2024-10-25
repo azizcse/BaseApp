@@ -18,6 +18,10 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     abstract fun getViewBinding(): VB
     private lateinit var fm: FragmentManager
 
+    abstract fun startView()
+
+    abstract fun stopView()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dialog = Dialog(requireContext())
@@ -36,6 +40,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpObservers()
+        startView()
     }
     private fun setUpObservers() {
         mViewModel.showLoader.observe(viewLifecycleOwner) { it ->
@@ -73,6 +78,11 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
         if (activity is BaseActivity<*, *>) {
             //activity.addMoneyBottomSheetDialog?.dismiss()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopView()
     }
 
 

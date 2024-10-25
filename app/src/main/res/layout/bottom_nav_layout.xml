@@ -33,7 +33,7 @@
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabQrScan"
         android:layout_width="@dimen/_61sdp"
         android:layout_height="@dimen/_61sdp"
@@ -46,6 +46,6 @@
         app:fabCustomSize="@dimen/_61sdp"
         app:layout_anchor="@id/bottomNavBar"
         app:srcCompat="@drawable/ic_qr_scan"
-        app:tint="@null" />
+        app:tint="@null" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package com.tsl.baseapp.ui.dashboard
 
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.navigation.NavController
@@ -53,6 +54,10 @@ class DashboardActivity : BaseActivity<DashboardMainViewModel, ActivityDashboard
         }
     }
 
+    fun openSideMenu(){
+        mViewBinding.drawerLayout.openDrawer(mViewBinding.containerMenu.containerNavDrawer)
+    }
+
     private fun navigationDrawerListeners(){
         mViewBinding.containerMenu.demoMenu.setOnClickListener {
             Toast.makeText(this,"Item clicked",Toast.LENGTH_LONG).show()
@@ -64,11 +69,14 @@ class DashboardActivity : BaseActivity<DashboardMainViewModel, ActivityDashboard
     }
 
     override fun setActionBar() {
-        TODO("Not yet implemented")
+        mViewBinding.actionBar.tvTitle.visibility = View.VISIBLE
+        mViewBinding.actionBar.ivBack.visibility = View.GONE
+        mViewBinding.actionBar.ivSupport.visibility = View.GONE
+        mViewBinding.actionBar.ivLanguage.visibility = View.GONE
     }
 
     override fun hideActionBar() {
-        TODO("Not yet implemented")
+        mViewBinding.actionBar.root.visibility = View.GONE
     }
 
     override fun onBackPressListener() {

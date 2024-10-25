@@ -19,6 +19,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
     abstract fun hideActionBar()
     abstract fun onBackPressListener()
 
+
     /**
      * UI initialization and observer setup required
      */

@@ -13,4 +13,6 @@
     <color name="color_white">#FFFFFF</color>
     <color name="amount_green">#3DAE72</color>
     <color name="color_black">#000000</color>
+    <color name="colorPrimary">#3EAE6F</color>
+    <color name="colorPrimaryDark">#08281C</color>
 </resources>

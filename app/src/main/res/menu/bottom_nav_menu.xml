@@ -11,10 +11,10 @@
         android:id="@+id/navStat"
         android:icon="@drawable/menu_pocket_selector"
         android:title="" />
-    <item
+    <!--<item
         android:id="@+id/placeHolder"
         android:title=""
-        />
+        />-->
     <item
         android:id="@+id/navChat"
         android:icon="@drawable/ic_chat_unselected_read"
