@@ -1,6 +1,8 @@
 package com.tsl.baseapp.network.repository
 
+import android.util.Log
 import com.tsl.baseapp.data.base.BaseResponse
+import com.tsl.baseapp.network.User
 import com.tsl.baseapp.network.service.UserService
 import retrofit2.Response
 import javax.inject.Inject
@@ -11,6 +13,9 @@ import javax.inject.Inject
  */
 class UserRepositoryImpl @Inject constructor(private val userService: UserService) : UserRepository {
 
-    override suspend fun getUserList(): Response<BaseResponse<String>> = userService.getUserList()
+    override suspend fun getUserList(): Response<User>{
+        Log.e("User_info","Repository called")
+        return userService.getUserList()
+    }
 
 }

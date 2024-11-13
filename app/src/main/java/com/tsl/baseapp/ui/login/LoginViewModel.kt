@@ -1,6 +1,7 @@
 package com.tsl.baseapp.ui.login
 
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.tsl.baseapp.data.model.response.UserItem
 import com.tsl.baseapp.network.repository.UserRepository
@@ -86,9 +87,7 @@ class LoginViewModel @Inject constructor(private val userRepository: UserReposit
     fun getAllUsers() {
         viewModelScope.launch {
             val response = callApi { userRepository.getUserList() }
-            response?.data.let {
-
-            }
+            Log.e("User_info","Third $response")
         }
     }
 }

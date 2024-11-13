@@ -6,13 +6,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tsl.baseapp.data.base.BaseResponse
+import com.tsl.baseapp.network.User
+import com.tsl.baseapp.network.repository.TokenRepository
+import com.tsl.baseapp.network.repository.UserRepository
 import com.tsl.baseapp.utils.SingleLiveEvent
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.delay
 import retrofit2.Response
+import javax.inject.Inject
 import kotlin.coroutines.cancellation.CancellationException
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel: ViewModel() {
     private val _showLoader = MutableLiveData<SingleLiveEvent<Boolean>>()
     val showLoader: LiveData<SingleLiveEvent<Boolean>> = _showLoader
 
@@ -30,20 +34,20 @@ abstract class BaseViewModel : ViewModel() {
         _showLoader.value = SingleLiveEvent(false)
     }
 
-    suspend fun <T> callApi(
+    suspend fun callApi(
         isShowMessage: Boolean = false,
         isShowErrorMessage: Boolean = true,
         isShowLoader: Boolean = true,
         skipHideLoading: Boolean = false,
         isShowGlobalErrorMessage: Boolean = true,
-        api: suspend () -> Response<BaseResponse<T>>
-    ): BaseResponse<T>? {
+        api: suspend () -> Response<User>
+    ): User? {
         try {
             if (isShowLoader)
                 showLoader()
 
             delay(500)
-
+            Log.e("User_info","API called")
             val response = api.invoke()
 
             if (isShowLoader && !skipHideLoading) {
@@ -52,11 +56,9 @@ abstract class BaseViewModel : ViewModel() {
             var baseResponse = response.body();
 
             //Check Api response code here
-            if (baseResponse?.responseCode == "ERROR") {
-                // SHOW generic error alert
-                Log.e("", "")
-            }
-            return baseResponse
+            Log.e("User_info","First $baseResponse")
+            val resposne = callAgain(api);
+            return resposne.body()
         }catch (e: TimeoutCancellationException) {
             hideLoader()
             //hideGifLoader()
@@ -73,6 +75,13 @@ abstract class BaseViewModel : ViewModel() {
             e.printStackTrace()
         }
         return null
+    }
+
+    suspend fun callAgain(nextApi:suspend ()->Response<User>):Response<User>{
+       // val resoinse = userRepository.getUserList()
+        val token = TokenRepository.getUsers()
+        Log.e("User_info","Second : ${token.body()}")
+        return nextApi.invoke()
     }
 
 }

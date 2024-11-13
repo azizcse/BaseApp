@@ -52,7 +52,8 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(),
 
     override fun onItemClick(view: View, item: UserItem) {
         Toast.makeText(this, item.name, Toast.LENGTH_LONG).show()
-        startActivity(Intent(this, DashboardActivity::class.java))
+        mViewModel.getAllUsers()
+       // startActivity(Intent(this, DashboardActivity::class.java))
     }
 
 }
